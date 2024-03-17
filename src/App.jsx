@@ -14,36 +14,26 @@ function App() {
   //const [prev, setPrev] = useState();
   //const [next, setNext] = useState();
 
-  const [pokemons, setPokemons] = useState([]);
+  const [pokemonList, setPokemonList] = useState([]);
 
   useEffect(() => {
-    console.log("Hello");
-    let pokel = [];
-    axios
-      .get(url, { params: { offset: offset, limit: 20 } })
-      .then((response) => {
-        setPokemonAll(response.data.results);
-        
-        //console.log(response.data.results);
-        response.data.results.forEach((element) => {
-          //console.log(element);
-          // 
-          axios.get(element.url).then((res) => {
-            //pokel.push(res.data)
-            setPokemons((oldPokemon) => [...oldPokemon, res.data])
-            //console.log(pokel);
-            
-          })
-          
-        });
-        console.log("Pokemons : ",pokemons);
-        
-        //console.log(pokemons);
-        //setPrevUrl(response.data.previous);
-        //setNextUrl(response.data.next);
-        //console.log(previous)
+    const fetchData = async () => {
+      const response = await axios.get('https://pokeapi.co/api/v2/pokemon', { params: { offset: offset, limit: 20 } });
+      const data = response.data;
+
+      const promises = data.results.map(async pokemon => {
+        const pokemonResponse = await axios.get(pokemon.url);
+        return { ...pokemonResponse.data };
       });
+
+      const pokemonDetails = await Promise.all(promises);
+      setPokemonList(pokemonDetails);
+    };
+
+    fetchData();
+    console.log(pokemonList);
   }, [offset]);
+  //console.log(pokemons);
 
   const prevPage = () => {
     setOffset((offset) => offset - 20);
@@ -61,9 +51,10 @@ function App() {
       <div className="container ">
         <h1 style={{ textAlign: "center" }}>Pokemon Dex</h1>
         <div className="row">
-          {pokemonAll.map((pokemon, index) => (
+          {pokemonList.map((pokemon, index) => (
+            
             <div key={index} className="col-sm12 col-md-4 col-lg-3">
-              <Card url={pokemon.url} />
+              <Card pokemon={pokemon} />
             </div>
           ))}
         </div>
@@ -72,6 +63,9 @@ function App() {
             <button className="btn btn-primary" onClick={prevPage}>
               Previous
             </button>
+          </div>
+          <div className="col">
+            {(offset/20)+1}
           </div>
           <div className="col d-flex justify-content-end">
             <button className="btn btn-primary" onClick={nextPage}>
