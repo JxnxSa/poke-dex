@@ -14,7 +14,7 @@ function App() {
     const fetchData = async () => {
       setLoading(true);
       const response = await axios.get(url, {
-        params: { offset: offset, limit: limit },
+        params: { offset: offset, limit: limit }, 
       });
       const data = response.data;
 
