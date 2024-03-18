@@ -6,6 +6,9 @@ import SpecialAttack from "../assets/sword.png";
 import SpecialDefense from "../assets/shield1.png";
 import Speed from "../assets/run.png";
 import { capFirstChar } from "../utils/StringUtil";
+import Detail from "./Detail";
+import "../utils/colorType.css";
+import { getTypeClass } from "../utils/ColorType";
 
 function Card({ pokemon }) {
   const [showDetail, setShowDetail] = useState(false);
@@ -15,21 +18,26 @@ function Card({ pokemon }) {
   const toggleDetail = () => {
     setShowDetail(!showDetail);
   };
-  console.log(pokemon);
 
   return (
     <div>
       <div className="card m-3">
-        <div className=" d-flex justify-content-center m-3">
+        <div className="d-flex justify-content-center m-3">
           <h2>{capFirstChar(pokemon.name)}</h2>
         </div>
         <img
           src={pokemon?.sprites?.other?.home.front_default}
           alt={pokemon.name}
+          className="img-fluid"
         />
         <div className="row">
           {pokemon?.types?.map((type, index) => (
-            <div className="col d-flex justify-content-center m-3" key={index}>
+            <div
+              className={`col d-flex justify-content-center m-3 ${getTypeClass(
+                type.type.name
+              )}`}
+              key={index}
+            >
               <div>{capFirstChar(type.type.name)}</div>
             </div>
           ))}
@@ -41,20 +49,18 @@ function Card({ pokemon }) {
 
         {showDetail && (
           <div>
-            <div className="status">
-              {pokemon.stats.map((stat, index) => (
-                <div key={index}>
-                  <div>
-                    <div className="row"></div>
-                    <img
-                      src={pic[index]}
-                      style={{ width: "9%", margin: "4%" }}
-                      alt={stat.stat.name}
-                    />
-                    {capFirstChar(stat.stat.name)} : {stat.base_stat}
-                  </div>
-                </div>
-              ))}
+            <div className="modal-backdrop fade show"></div>
+            <div
+              className="modal fade show"
+              style={{ display: "block" }}
+              tabIndex="-1"
+            >
+              <Detail
+                pokemon={pokemon}
+                pic={pic}
+                capFirstChar={capFirstChar}
+                toggleDetail={toggleDetail}
+              />
             </div>
           </div>
         )}
