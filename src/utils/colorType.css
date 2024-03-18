@@ -1,92 +1,90 @@
-/* Card.css */
-
 .normal-type {
-    background-color: #a8a878; 
-    color: #fff; 
-  }
+  background-color: #dcdcdc; 
+  color: #fff; 
+}
   
-  .fire-type {
-    background-color: #f08030; 
-    color: #fff; 
-  }
+.fire-type {
+  background-color: #ff6900; 
+  color: #fff; 
+}
   
-  .water-type {
-    background-color: #6890f0; 
-    color: #fff; 
-  }
+.water-type {
+  background-color: #14b9ff; 
+  color: #fff; 
+}
   
-  .electric-type {
-    background-color: #f8d030; 
-    color: #000; 
-  }
+.electric-type {
+  background-color: #ffe100; 
+  color: #fff; 
+}
   
-  .grass-type {
-    background-color: #78c850; 
-    color: #fff; 
-  }
+.grass-type {
+  background-color: #b4f000; 
+  color: #fff; 
+}
   
-  .ice-type {
-    background-color: #98d8d8; 
-    color: #000; 
-  }
+.ice-type {
+  background-color: #14f5ff; 
+  color: #fff; 
+}
   
-  .fighting-type {
-    background-color: #c03028; 
-    color: #fff; 
-  }
+.fighting-type {
+  background-color: #dc6900; 
+  color: #fff; 
+}
   
-  .poison-type {
-    background-color: #a040a0; 
-    color: #fff; 
-  }
+.poison-type {
+  background-color: #d28cd2; 
+  color: #fff; 
+}
   
-  .ground-type {
-    background-color: #e0c068; 
-    color: #000; 
-  }
+.ground-type {
+  background-color: #fac85a; 
+  color: #fff; 
+}
   
-  .flying-type {
-    background-color: #a890f0;
-    color: #fff; 
-  }
+.flying-type {
+  background-color: #78dcff;
+  color: #fff; 
+}
   
-  .psychic-type {
-    background-color: #f85888; 
-    color: #fff; 
-  }
+.psychic-type {
+  background-color: #f08cdc; 
+  color: #fff; 
+}
   
-  .bug-type {
-    background-color: #a8b820; 
-    color: #fff; 
-  }
+.bug-type {
+  background-color: #46c846; 
+  color: #fff; 
+}
   
-  .rock-type {
-    background-color: #b8a038; 
-    color: #fff; 
-  }
+.rock-type {
+  background-color: #b48c64; 
+  color: #fff; 
+}
   
-  .ghost-type {
-    background-color: #705898; 
-    color: #fff; 
-  }
+.ghost-type {
+  background-color: #a08cff; 
+  color: #fff; 
+}
   
-  .dragon-type {
-    background-color: #7038f8; 
-    color: #fff; 
-  }
+.dragon-type {
+  background-color: #5078dc; 
+  color: #fff; 
+}
   
-  .dark-type {
-    background-color: #705848; 
-    color: #fff; 
-  }
+.dark-type {
+  background-color: #787878; 
+  color: #fff; 
+}
   
-  .steel-type {
-    background-color: #b8b8d0; /* สีน้ำเงินเข้ม */
-    color: #000; /* สีข้อความ */
-  }
+.steel-type {
+  background-color: #aac8f0; 
+  color: #000; 
+}
   
-  .fairy-type {
-    background-color: #ee99ac; /* สีชมพูอ่อน */
-    color: #000; /* สีข้อความ */
-  }
+.fairy-type {
+  background-color: #ffafdc; 
+  color: #fff; 
+}
   
